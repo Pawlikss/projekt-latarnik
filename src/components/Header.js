@@ -2,7 +2,7 @@ import Navigation from "./Navigation";
 
 const Header = () => {
     return ( 
-        <header>
+        <header className="grid-container">
             <h1>Latarnik wyborczy</h1>
             <Navigation/>
         </header>
