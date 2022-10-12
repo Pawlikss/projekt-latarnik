@@ -1,6 +1,6 @@
 const MainArticle = () => {
     return ( 
-        <article>
+        <article className="center">
                 <h2>Wypełnij test i porównaj swoje poglądy</h2>
                 <p>Sprawdź poglądy i przekonaj się, do kogo jest Ci najbliżej w wyborach parlamentarnych 2023.</p>
                 <button className="btn btn-secondary">WYPEŁNIJ TEST</button>
