@@ -1,6 +1,6 @@
-const Navigation = () => {
+const BottomNav = () => {
     return ( 
-        <ul className="nav justify-content-end">
+        <ul className="nav justify-content-center">
             <li className="nav-item">
                 <a className="nav-link" href="#">O PROJEKCIE</a>
             </li>
@@ -14,4 +14,4 @@ const Navigation = () => {
     );
 }
  
-export default Navigation;
+export default BottomNav;

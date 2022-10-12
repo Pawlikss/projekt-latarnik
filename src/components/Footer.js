@@ -1,9 +1,9 @@
-import Navigation from "./Navigation";
+import BottomNav from "./BottomNav";
 
 const Footer = () => {
     return ( 
         <footer>
-            <Navigation />
+            <BottomNav />
         </footer>
     );
 }
