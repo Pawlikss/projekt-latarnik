@@ -1,7 +1,7 @@
 const Header = () => {
     return ( 
         <div>
-            <h1>Wolontariat korporacyjny</h1>
+            <h1>Latarnik wyborczy</h1>
         </div>
     );
 }
