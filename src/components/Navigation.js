@@ -1,6 +1,6 @@
 const Navigation = () => {
     return ( 
-        <ul className="nav justify-content-end">
+        <ul className="nav justify-content-end pad">
             <li className="nav-item">
                 <a className="nav-link" href="#">O PROJEKCIE</a>
             </li>

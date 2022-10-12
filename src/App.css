@@ -1,5 +1,10 @@
 body {
-    padding: 10px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.pad {
+    font-size: 32px;
 }
 
 .grid-container {
