@@ -1,5 +1,6 @@
 import MainArticle from "./MainArticle";
 import About from "./About";
+import FAQ from "./FAQ";
 
 const Content = () => {
     return ( 
@@ -7,6 +8,7 @@ const Content = () => {
             <MainArticle />
             <hr />
             <About />
+            <FAQ />
         </main>
     );
 }
