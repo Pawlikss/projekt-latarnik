@@ -2,13 +2,14 @@ import "../index.css";
 import { motion, useMotionValue, useTransform, useAnimation } from "framer";
 
 const style = {
-    backgroundImage: "URL(https://img.icons8.com/color/452/GeeksforGeeks.png)",
     backgroundRepeat: "no-repeat",
     backgroundSize: "contain",
     backgroundColor: "#55ccff",
     boxShadow: "5px 10px 18px #888888",
     borderRadius: 10,
     height: 300,
+    width: 300,
+    textAlign: "center",
   };
 
 const Test = () => {
@@ -25,7 +26,7 @@ const Test = () => {
   const animControls = useAnimation();
   
   return (
-    <div className="App">
+    <center>
       <motion.div
         center
         drag="x"
@@ -42,7 +43,7 @@ const Test = () => {
           }
         }}
       />
-    </div>
+    </center>
   );
 }
  
