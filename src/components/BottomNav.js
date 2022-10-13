@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 const BottomNav = () => {
     return ( 
-        <ul className="nav justify-content-end pad">
+        <ul className="nav justify-content-center pad">
             <li className="nav-item">
                 <Link className="nav-link" to="/">O PROJEKCIE</Link>
             </li>
