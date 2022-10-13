@@ -11,7 +11,10 @@ function App() {
   return (
     <Router>
       <Header />
-      <Content />
+      <Routes>
+        <Route path="/" component={Content}/>
+        <Route path="/test" component={Test}/>
+      </Routes>
       <Footer />
     </Router>
   );
