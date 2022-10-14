@@ -5,8 +5,6 @@ import '../index.css';
 const Card = ({ text, color }) => {
     const motionValue = useMotionValue(0);
     
-    const rotateValue = useTransform(motionValue, [-200, 200], [-50, 50]);
-    
     const opacityValue = useTransform(
       motionValue,
       [-200, -150, 0, 150, 200],
@@ -21,8 +19,8 @@ const Card = ({ text, color }) => {
       backgroundColor: color,
       boxShadow: '5px 10px 18px #888888',
       borderRadius: 10,
-      height: 300,
-      width: 300,
+      height: 200,
+      width: 200
     };
     
     return (
@@ -31,17 +29,16 @@ const Card = ({ text, color }) => {
           center
           drag='x'
           x={motionValue}
-          rotate={rotateValue}
           opacity={opacityValue}
-          dragConstraints={{ left: -1000, right: 1000 }}
+          dragConstraints={{ left: -200, right: 200 }}
           style={style}
           children={text}
+
           onDragEnd={(event, info) => {
-            
-            if (Math.abs(info.point.x) <= 150) {
-              animControls.start({ x: 0 });
+            if (Math.abs(info.point.x) <= 200) {
+                animControls.start({ x: 950 });
             } else {
-              animControls.start({ x: info.point.x < 0 ? -200 : 200 });
+                animControls.start({ x: info.point.x < 0 ? -200 : 200 });
             }
           }}
         />
