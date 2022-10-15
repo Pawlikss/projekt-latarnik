@@ -1,19 +1,16 @@
 import { Link } from 'react-router-dom'
-
+import styles from '../styl.css'
 const BottomNav = () => {
-    return ( 
-        <ul className="nav justify-content-center pad">
-            <li className="nav-item">
-                <Link className="nav-link" to="/">O PROJEKCIE</Link>
-            </li>
-            <li className="nav-item">
-                <Link className="nav-link" to="/">KONTAKT</Link>
-            </li>
-            <li className="nav-item">
-                <Link className="nav-link" to="/test">WYPEŁNIJ TEST</Link>
-            </li>
-        </ul>
+    return (
+        <div className="footer">
+            <div className="FooterItem">
+                <Link className="link" to="/">O projekcie</Link>
+            </div>
+            <div className="FooterItem">
+                <Link className="link" to="/">Kontakt</Link>
+            </div>
+        </div>
     );
 }
- 
+
 export default BottomNav;

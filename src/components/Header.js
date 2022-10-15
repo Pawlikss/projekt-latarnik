@@ -1,12 +1,11 @@
 import Navigation from "./Navigation";
-
+import styles from "../styl.css"
 const Header = () => {
-    return ( 
-        <header className="grid-container">
+    return (
+        <header className="headerPage">
             <h1>Latarnik wyborczy</h1>
-            <Navigation/>
         </header>
     );
 }
- 
+
 export default Header;
