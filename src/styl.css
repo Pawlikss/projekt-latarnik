@@ -11,8 +11,13 @@
 }
 
 .faqtext {
-    color: rgb(75, 73, 73);
+    color: rgb(85, 83, 83);
     float: right;
+}
+
+.question {
+    color: rgb(92, 91, 91);
+    font-weight: bold;
 }
 
 .weight {
@@ -106,46 +111,15 @@
     clear: both;
 }
 
-.FooterItem {
-    padding: 1vw 5vw;
+.footerText {
+    color: #2b2c2c;
+    font-family: Arial;
     text-align: center;
-    font-size: 20px;
-}
-
-.link {
-    color: rgb(73, 73, 73);
-    text-decoration: none;
-    transition: 150ms color linear;
-}
-
-.link:hover {
-    color: rgb(19, 18, 18);
-}
-
-.link:active {
-    color: rgb(73, 73, 73);
-}
-
-#line {
-    position: relative;
 }
 
 .cen {
-
     width: 300px;
 }
-
-#line::after {
-    content: '';
-    display: block;
-    height: 60%;
-    width: 1px;
-    right: 0;
-    top: 20%;
-    background-color: rgb(73, 73, 73);
-    position: absolute;
-}
-
 
 .container {
     margin-top: 30px;
@@ -249,10 +223,6 @@
 @media only screen and (max-width: 280px) {
     .headerPage>h1 {
         font-size: 22px;
-    }
-
-    .FooterItem {
-        font-size: 15px;
     }
 
     .title {

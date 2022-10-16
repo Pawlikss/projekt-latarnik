@@ -1,4 +1,3 @@
-import Navigation from "./Navigation";
 import styles from "../styl.css"
 const Header = () => {
     return (

@@ -9,7 +9,7 @@ const FAQ = () => {
                     <p>
                         <span className="weight"> Co się dzieje z odpowiedziami użytkowników?</span><br />
                         Zbierane dane podczas wypełniania testu po wyświetleniu dopasowań są kasowane.
-                        Jak oblicza się stopień zgodności odpowiedzi użytkownika z poglądami polityków?
+                        <span className="question"> Jak oblicza się stopień zgodności odpowiedzi użytkownika z poglądami polityków? </span>
                         Na każde ze stwierdzeń użytkownicy oraz komitety wyborcze udzielają jednej z odpowiedzi: "Zgadzam się", "Nie zgadzam się", "Nie mam zdania". Za poszczególne kombinacje odpowiedzi użytkownika i danego komitetu do każdego ze stwierdzeń przypisuje się następującą liczbe punktów,jeżeli:
                         <ul>
                             <li>Zarówno użytkownik, jak i komitet odpowiedzą "Zgadzam się" albo "Nie zgadzam się" - 3 punkty</li>
