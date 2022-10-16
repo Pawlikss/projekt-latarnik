@@ -5,6 +5,7 @@ import "../index.css";
 const Test = () => {
   const cards = [
     {
+      id: 0,
       text: 'Ustawa 1',
       color: '#55ccff'
     },
@@ -14,7 +15,7 @@ const Test = () => {
     <div className='App'>
 
       {cards.map((card) => (
-        <Card text={card.text} color={card.color} key={card.text}></Card>
+        <Card text={card.text} color={card.color} key={card.id}></Card>
       ))}
     </div>
   );
