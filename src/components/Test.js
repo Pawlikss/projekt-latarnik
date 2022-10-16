@@ -16,7 +16,7 @@ const firebaseConfig = {
   
 };
 
-
+const app=initializeApp(firebaseConfig);
 const Test = () => {
   const cards = [
     {
