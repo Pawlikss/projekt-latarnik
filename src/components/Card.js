@@ -26,7 +26,8 @@ const Card = ({ id, text, color }) => {
       width: 200,
       opacity: {opacityValue},
     };
-    
+
+
     return (
       <center>
         <motion.div
@@ -52,13 +53,23 @@ const Card = ({ id, text, color }) => {
             }
             if(info.point.x >= 1100) {
               setState(prevValue => ({
+                
                 karty: [...prevValue.karty, 1]
+                
               }))
+              
+              
             }
-          }}
+          }
+        }
+          
         />
+        {
+          console.log(state.karty)
+        }
       </center>
     );
   };
 
+  
   export default Card;
