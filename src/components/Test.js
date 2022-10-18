@@ -1,6 +1,8 @@
 import {useState} from 'react';
 import {getDatabase, ref, child, get } from "firebase/database";
 import { initializeApp } from 'firebase/app';
+import Header from './Header'
+import Tutorial from './Tutorial';
 
 import Card from "./Card"
 
@@ -30,7 +32,11 @@ const Test = () => {
   const db = getDatabase();
 
   //lemme just wrzucic to tu cyk cyk | dawid
+  const [IsActive, setIsActive] = useState(false)
   const [karty, setkarty] = useState(cards);
+
+  const toggleActiveState = () => setIsActive(true)
+
   const addObjectToArray = obj => {
     setkarty(current => [...current, obj]);
 
@@ -67,32 +73,37 @@ const Test = () => {
 
 //moje stop |dawid
   return (
-    <div className='App'>
-      {karty.map((karty) => (<Card text={karty.text} color={'#55ccff'} key={karty.id}></Card>))}
-      <button onClick={() =>
-        get(child(ref(db),'Pytania')).then((snapshot) => {
-          if (snapshot.exists()) {
-            const pytania = Object.values(snapshot.val())
-            const nazwy = Object.keys(snapshot.val())
-            liczenie(pytania)
-            // to jest obiekt który ma wszystkie pytania snapshot.val()
-            for(let j=0;j<nazwy.length;j++){
-              addObjectToArray({id:j,text:nazwy[j]})    
+    <>
+      <Header/>
+      <Tutorial/>
+      <div className='App'>
+        <button className="btn btn-outline-primary testbutton" onClick={() => {
+          toggleActiveState()
+          get(child(ref(db),'Pytania')).then((snapshot) => {
+            if (snapshot.exists()) {
+              const pytania = Object.values(snapshot.val())
+              const nazwy = Object.keys(snapshot.val())
+              liczenie(pytania)
+              // to jest obiekt który ma wszystkie pytania snapshot.val()
+              for(let j=0;j<nazwy.length;j++){
+                addObjectToArray({id:j,text:nazwy[j]})    
+              }
+            } else {
+              console.log("No data available");
             }
-          } else {
-            console.log("No data available");
-          }
-          }).catch((error) => {
-            console.error(error);
+            }).catch((error) => {
+              console.error(error);
+            })
+        }}>Rozpocznij test</button>
+        {IsActive ? karty.map((karty) => (<Card text={karty.text} color={'#55ccff'} key={karty.id}></Card>)) : null}
+        <button onClick={() =>
+          addObjectToArray({
+            id: Math.random(),
+            text: 'test1',
           })
-      }>Sciągnij z bazy</button>
-      <button onClick={() =>
-        addObjectToArray({
-          id: Math.random(),
-          text: 'test1',
-        })
-      }>dodaj do tescik</button>
-    </div>
+        }>dodaj do tescik</button>
+      </div>
+    </>
   );
 }
  

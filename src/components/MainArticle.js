@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+
 const MainArticle = () => {
     return (
         <article className="center">

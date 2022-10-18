@@ -23,6 +23,8 @@ const Card = ({ id, text, color }) => {
       height: 200,
       width: 200,
       opacity: {opacityValue},
+      verticalAlign: 'middle',
+      display: 'table-cell',
     };
 
 
@@ -50,9 +52,7 @@ const Card = ({ id, text, color }) => {
             }
             if(info.point.x >= 1100) {
               setState(prevValue => ({
-                
                 karty: [...prevValue.karty, 1]
-                
               }))
               
             }
