@@ -1,8 +1,6 @@
 import { useState } from 'react'
 import { motion, useMotionValue, useTransform, useAnimationControls } from 'framer-motion';
 
-import '../index.css';
-
 const Card = ({ id, text, color }) => {
     const [state, setState] = useState({ karty: [] })
 
@@ -31,7 +29,6 @@ const Card = ({ id, text, color }) => {
     return (
       <center>
         <motion.div
-          center
           drag='x'
           x={motionValue}
           dragConstraints={{ left: 0, right: 0}}
@@ -58,15 +55,9 @@ const Card = ({ id, text, color }) => {
                 
               }))
               
-              
             }
           }
-        }
-          
-        />
-        {
-          console.log(state.karty)
-        }
+        }/>
       </center>
     );
   };

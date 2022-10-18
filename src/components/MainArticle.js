@@ -1,4 +1,3 @@
-import styles from '../styl.css'
 import { Link } from "react-router-dom";
 const MainArticle = () => {
     return (

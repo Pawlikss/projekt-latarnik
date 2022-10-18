@@ -1,4 +1,3 @@
-import styles from "../styl.css"
 const Header = () => {
     return (
         <header className="headerPage">

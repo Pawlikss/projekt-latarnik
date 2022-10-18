@@ -1,4 +1,3 @@
-import styles from '../styl.css'
 const About = () => {
     return (
         <article>

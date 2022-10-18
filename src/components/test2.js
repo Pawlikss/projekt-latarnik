@@ -1,6 +1,5 @@
 import { getDatabase, ref, onValue } from "firebase/database";
 
-
 const db = getDatabase();
 const odwolanie= ref(db,"Pytania")
 
