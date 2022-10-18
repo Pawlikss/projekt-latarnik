@@ -10,6 +10,10 @@
     letter-spacing: 3px;
 }
 
+.container_row{
+    display: grid;
+}
+
 .vertical-center {
     margin: 0;
     position: absolute;
@@ -19,7 +23,7 @@
   }
 
 .testbutton {
-    margin: 10px
+    margin: 10px;
 }
 
 .faqtext {

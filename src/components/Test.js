@@ -78,31 +78,33 @@ const Test = () => {
       <Tutorial/>
       <div className='App'>
         <button className="btn btn-outline-primary testbutton" onClick={() => {
-          toggleActiveState()
-          get(child(ref(db),'Pytania')).then((snapshot) => {
-            if (snapshot.exists()) {
-              const pytania = Object.values(snapshot.val())
-              const nazwy = Object.keys(snapshot.val())
-              liczenie(pytania)
-              // to jest obiekt który ma wszystkie pytania snapshot.val()
-              for(let j=0;j<nazwy.length;j++){
-                addObjectToArray({id:j,text:nazwy[j]})    
+            toggleActiveState()
+            get(child(ref(db),'Pytania')).then((snapshot) => {
+              if (snapshot.exists()) {
+                const pytania = Object.values(snapshot.val())
+                const nazwy = Object.keys(snapshot.val())
+                liczenie(pytania)
+                // to jest obiekt który ma wszystkie pytania snapshot.val()
+                for(let j=0;j<nazwy.length;j++){
+                  addObjectToArray({id:j,text:nazwy[j]})    
+                }
+              } else {
+                console.log("No data available");
               }
-            } else {
-              console.log("No data available");
-            }
-            }).catch((error) => {
-              console.error(error);
-            })
-        }}>Rozpocznij test</button>
+              }).catch((error) => {
+                console.error(error);
+              })
+          }}>Rozpocznij test</button>
+      </div>
+      <div className='App container_row'>
         {IsActive ? karty.map((karty) => (<Card text={karty.text} color={'#55ccff'} key={karty.id}></Card>)) : null}
-        <button onClick={() =>
+      </div>
+      <button onClick={() =>
           addObjectToArray({
             id: Math.random(),
             text: 'test1',
           })
         }>dodaj do tescik</button>
-      </div>
     </>
   );
 }

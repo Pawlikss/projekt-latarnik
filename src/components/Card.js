@@ -6,12 +6,6 @@ const Card = ({ id, text, color }) => {
 
     const motionValue = useMotionValue(0);
     
-    const opacityValue = useTransform(
-      motionValue,
-      [-200, 0, 200],
-      [0, 1, 0]
-    );
-    
     const animControls = useAnimationControls();
     
     const style = {
@@ -22,9 +16,10 @@ const Card = ({ id, text, color }) => {
       borderRadius: 10,
       height: 200,
       width: 200,
-      opacity: {opacityValue},
       verticalAlign: 'middle',
       display: 'table-cell',
+      position: 'absolute',
+      left: '45%',
     };
 
 
@@ -42,7 +37,10 @@ const Card = ({ id, text, color }) => {
             if (info.point.x >= 800 && info.point.x <= 1100) {
                 animControls.start({ x: 0 });
             } else {
-                animControls.start({ x: info.point.x <= 800 ? -400 : 400 });
+                animControls.start({
+                  x: info.point.x <= 800 ? -700 : 700,
+                  opacity: 0
+                });
             }
 
             if(info.point.x <= 800) {
