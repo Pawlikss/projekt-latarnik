@@ -21,13 +21,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 const Test = () => {
-  const cards = [
-    {
-      id: 40,
-      text: 'Ustawa 0'
-    },
-
-  ];
+  const cards = [];
 
   const db = getDatabase();
 
@@ -96,8 +90,8 @@ const Test = () => {
               })
           }}>Rozpocznij test</button>
       </div>
-      <div className='App container_row'>
-        {IsActive ? karty.map((karty) => (<Card text={karty.text} color={'#55ccff'} key={karty.id}></Card>)) : null}
+      <div className='App container_row center'>
+        {IsActive ? karty.map((karty) => (<Card text={karty.text} color={'#55ccff'} key={karty.id} id={karty.id}></Card>)) : null}
       </div>
       <button onClick={() =>
           addObjectToArray({
