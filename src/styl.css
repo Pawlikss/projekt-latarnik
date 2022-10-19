@@ -3,14 +3,107 @@
     text-align: center;
     background-color: rgb(66, 31, 88);
     padding: 12px;
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
     width: 100%;
     font-family: Reznik;
     letter-spacing: 3px;
 }
 
-.container_row{
+.background {
+    background-color: rgb(202, 201, 218);
+    position: relative;
+    padding-bottom: 50px;
+}
+
+.karta {
+    width: 200px;
+    height: 170px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.testPadding {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.CardText {
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-size: 17px;
+}
+
+.con {
+    position: relative;
+    height: 180px;
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.left {
+    float: left;
+    width: 50%;
+    height: 100%;
+    background-image: linear-gradient(to left, rgb(245, 219, 219), rgb(240, 124, 124), rgb(235, 70, 70), red);
+    box-sizing: border-box;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+.right {
+    width: 50%;
+    height: 100%;
+    float: left;
+    background-image: linear-gradient(to left, rgb(58, 238, 58), rgb(109, 230, 109), rgb(150, 235, 150), rgb(197, 235, 197));
+    box-sizing: border-box;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.right::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.testTitle {
+    font-size: 45px;
+    color: rgb(32, 52, 240);
+    font-weight: 500;
+    margin: 0;
+}
+
+.testText {
+    font-size: 20px;
+    color: rgb(51, 70, 238);
+    font-weight: 500;
+    margin: 0;
+}
+
+.button3 {
+    background-color: #1178d1;
+    border: 1px solid #1681df;
+    border-radius: 12px;
+    font-size: 18px;
+    color: white;
+    transition: 150ms background-color linear;
+    width: 140px;
+    height: 40px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.button3:hover {
+    background-color: #1b8cee;
+}
+
+.button3:active {
+    background-color: #1178d1;
+}
+
+.container_row {
     display: grid;
 }
 
@@ -20,7 +113,7 @@
     top: 50%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-  }
+}
 
 .testbutton {
     margin: 10px;
@@ -70,8 +163,8 @@
 }
 
 .button1 {
-    background-color: #6c757d;
-    border: 1px solid #6c757d;
+    background-color: #4731c2;
+    border: 1px solid #4029c2;
     border-radius: 12px;
     padding: 8px;
     color: white;
@@ -79,7 +172,6 @@
     width: 120px;
     height: 40px;
     margin-right: 5px;
-    opacity: 95%;
 }
 
 .button2 {
@@ -97,9 +189,7 @@
 }
 
 .button1:hover {
-    background-color: #5b646c;
-    border: 1px solid #6c757d;
-    opacity: 100%;
+    background-color: #5543b9;
 }
 
 .button2:hover {
@@ -110,7 +200,7 @@
 }
 
 .button1:active {
-    background-color: #7D868e;
+    background-color: #361cca;
 }
 
 .button2:active {
@@ -123,8 +213,6 @@
     justify-content: center;
     padding: 20px;
     position: relative;
-    border-bottom-left-radius: 50px;
-    border-bottom-right-radius: 50px;
     clear: both;
 }
 
@@ -145,18 +233,26 @@
 .img {
     float: left;
     padding: 10px;
-    width: 300px;
+    width: 150px;
 }
 
 @media only screen and (max-width: 920px) {
     .title {
         margin-bottom: 30px;
     }
+
+    .con {
+        width: 600px;
+    }
 }
 
 @media only screen and (max-width: 660px) {
     .title {
         font-size: 20px;
+    }
+
+    .con {
+        width: 500px;
     }
 }
 
@@ -170,14 +266,13 @@
         margin-bottom: 20px;
     }
 
-    .img {
-        float: none;
-
-    }
-
     .cen {
         margin-left: auto;
         margin-right: auto;
+    }
+
+    .con {
+        width: 400px;
     }
 }
 
@@ -198,6 +293,18 @@
     .flexElement {
         padding: 10px;
     }
+
+    .testTitle {
+        font-size: 30px;
+    }
+
+    .testText {
+        font-size: 18px;
+    }
+
+    .con {
+        width: 350px;
+    }
 }
 
 @media only screen and (max-width: 400px) {
@@ -217,10 +324,6 @@
         font-size: 40px;
     }
 
-    .img {
-        width: 250px;
-    }
-
     .cen {
         width: 250px;
     }
@@ -235,6 +338,14 @@
         width: 200px;
         margin: 0;
     }
+
+    .img {
+        float: none;
+    }
+
+    .con {
+        width: 100%;
+    }
 }
 
 @media only screen and (max-width: 280px) {
@@ -247,9 +358,7 @@
         font-size: 20px;
     }
 
-    .img {
-        width: 170px;
-    }
+
 
     .cen {
         width: 170px;

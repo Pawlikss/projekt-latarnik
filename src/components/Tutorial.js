@@ -1,10 +1,10 @@
 const Tutorial = () => {
-    return ( 
-        <div className="center">
-            <p className="weight paragraph">Jak wypełnić test?</p>
-            Odpowiedz na zestaw pytań przesuwając kartę w prawo - Tak, w lewo - Nie.
+    return (
+        <div className="center testPadding">
+            <p className="testTitle">Jak wypełnić test?</p>
+            <p className="testText"> Odpowiedz na zestaw pytań przesuwając kartę w prawo - Tak, w lewo - Nie.</p>
         </div>
     );
 }
- 
+
 export default Tutorial;
