@@ -1,7 +1,7 @@
 .headerPage {
     color: rgb(253, 253, 253);
     text-align: center;
-    background-color: rgb(66, 31, 88);
+    background-color: #0052a5;
     padding: 12px;
     width: 100%;
     font-family: Reznik;
@@ -39,6 +39,8 @@
     width: 800px;
     margin-left: auto;
     margin-right: auto;
+    border: 1px solid black;
+    border-radius: 15px;
 }
 
 .left {
@@ -189,7 +191,7 @@
 }
 
 .button1:hover {
-    background-color: #5543b9;
+    background-color: #3920cc;
 }
 
 .button2:hover {
@@ -200,7 +202,7 @@
 }
 
 .button1:active {
-    background-color: #361cca;
+    background-color: #5b45d6;
 }
 
 .button2:active {
