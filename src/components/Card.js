@@ -14,12 +14,13 @@ const Card = ({ id, text, color }) => {
     backgroundSize: 'contain',
     backgroundColor: color,
     borderRadius: 15,
-    height: 180,
+    height: 190,
     width: 190,
     verticalAlign: 'middle',
     display: 'table-cell',
     position: 'absolute',
-    left: '0px'
+    left: '0px',
+    padding: '5px'
   };
   console.log(cards)
 

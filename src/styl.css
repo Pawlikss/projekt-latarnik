@@ -1,7 +1,7 @@
 .headerPage {
     color: rgb(253, 253, 253);
     text-align: center;
-    background-color: rgb(66, 31, 88);
+    background-color: #0052a5;
     padding: 12px;
     width: 100%;
     font-family: Reznik;
@@ -35,10 +35,12 @@
 
 .con {
     position: relative;
-    height: 180px;
+    height: 190px;
     width: 800px;
     margin-left: auto;
     margin-right: auto;
+    border: 1px solid black;
+    border-radius: 15px;
 }
 
 .left {
