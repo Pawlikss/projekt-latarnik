@@ -95,7 +95,7 @@ const Test = () => {
         <div className="con">
           <div className="left"></div>
           <div className="right"></div>
-          <div class="abs">
+          <div class="con2">
             <div class="karta">
               <div className='CardText'>
                 {IsActive ? karty.map((karty) => (<Card text={karty.text} color={'#3F1292'} key={karty.id} id={karty.id}></Card>)) : null}
