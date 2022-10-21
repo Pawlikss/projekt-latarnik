@@ -7,8 +7,8 @@ const About = () => {
                 <div className="flexElement">
                     <p>
 
-                        <h3 className="title">Przygotowujemy zestaw ustaw</h3>
-                        <span>Zagłosuj na ustawy. Możesz przerwać w każdej chwili.</span>
+                        <h3 className="title">Przygotowujemy zestaw pytań</h3>
+                        <span>Wyraź swoje zdanie na temat kwestii politycznych, możesz przerwać w każdej chwili.</span>
                     </p>
                 </div>
                 <div className="flexElement">
