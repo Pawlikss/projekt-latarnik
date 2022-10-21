@@ -19,7 +19,16 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+function shuffle(sourceArray) {
+  for (var i = 0; i < sourceArray.length - 1; i++) {
+      var j = i + Math.floor(Math.random() * (sourceArray.length - i));
 
+      var temp = sourceArray[j];
+      sourceArray[j] = sourceArray[i];
+      sourceArray[i] = temp;
+  }
+  return sourceArray;
+}
 const Test = () => {
   const cards = [];
 
@@ -77,10 +86,15 @@ const Test = () => {
             toggleActiveState()
             get(child(ref(db), 'Pytania')).then((snapshot) => {
               if (snapshot.exists()) {
-                const pytania = Object.values(snapshot.val())
-                const nazwy = Object.keys(snapshot.val())
+                var nazwy = Object.keys(snapshot.val())
+                var pytania=[];
+                nazwy = shuffle(nazwy)
+                for(var i=0;i<nazwy.length;i++){
+                    pytania.push(snapshot.val()[nazwy[i]])
+                } 
+                console.log(pytania)
                 liczenie(pytania)
-                // to jest obiekt który ma wszystkie pytania snapshot.val()
+                
                 for (let j = 0; j < nazwy.length; j++) {
                   addObjectToArray({ id: j, text: nazwy[j] })
                 }

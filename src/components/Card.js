@@ -22,6 +22,7 @@ const Card = ({ id, text, color }) => {
     padding: '5px'
   };
 
+ 
   return (
     <motion.div
       drag='x'
@@ -33,30 +34,37 @@ const Card = ({ id, text, color }) => {
       animate={animControls}
 
       onDragEnd={(event, info) => {
-        if (info.point.x >= 800 && info.point.x <= 1100) {
+        if (info.point.x >= (window.innerWidth/2)-style.width*0.25 && info.point.x <= (window.innerWidth/2)+style.width*0.25) {
           animControls.start({ x: 0 });
         } else {
           animControls.start({
-            x: info.point.x <= 800 ? -700 : 700,
-            opacity: 0
+            x: info.point.x <= (window.innerWidth/2) ? -(window.innerWidth/2): (window.innerWidth/2)-70,
+            opacity: 0,
+            scale:0
           });
+
+          
+          
+          
         }
 
-        if (info.point.x <= 800) {
+        if (info.point.x <= (window.innerWidth/2)) {
           setState(prevValue => ({
             karty: [
               ...prevValue.karty,
               { id, IsDragRight: 0 },
             ],
           }))
+          console.log("lewo")
         }
-        if (info.point.x >= 1100) {
+        if (info.point.x >= (window.innerWidth/2)) {
           setState(prevValue => ({
             karty: [
               ...prevValue.karty,
               { id, IsDragRight: 1 },
             ],
           }))
+          console.log("prawo")
         }
       }
       } />
