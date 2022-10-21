@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { motion, useMotionValue, useTransform, useAnimationControls } from 'framer-motion';
 
 const Card = ({ id, text, color }) => {
-  let cards = []
   const [state, setState] = useState({ karty: [] })
 
   const motionValue = useMotionValue(0);
@@ -22,7 +21,6 @@ const Card = ({ id, text, color }) => {
     left: '0px',
     padding: '5px'
   };
-  console.log(cards)
 
   return (
     <motion.div
