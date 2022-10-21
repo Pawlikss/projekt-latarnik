@@ -23,6 +23,14 @@
 }
 
 
+.null {
+    width: 140px;
+    height: 40px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    display: none;
+}
 
 .testPadding {
     padding-left: 20px;

@@ -90,7 +90,10 @@ const Test = () => {
             }).catch((error) => {
               console.error(error);
             })
+            document.getElementsByClassName("button3")[0].style = "display:none";
+            document.getElementsByClassName("null")[0].style = "display:block"; /*znikanie przycisku */
           }}>Rozpocznij test</button>
+          <div class="null"></div>
         </div>
         <div className="con">
           <div class="karta">
