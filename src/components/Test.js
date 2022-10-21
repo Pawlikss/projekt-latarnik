@@ -93,16 +93,11 @@ const Test = () => {
           }}>Rozpocznij test</button>
         </div>
         <div className="con">
-          <div className="left"></div>
-          <div className="right"></div>
-          <div class="con2">
-            <div class="karta">
-              <div className='CardText'>
-                {IsActive ? karty.map((karty) => (<Card text={karty.text} color={'#3F1292'} key={karty.id} id={karty.id}></Card>)) : null}
-              </div>
+          <div class="karta">
+            <div className='CardText'>
+              {IsActive ? karty.map((karty) => (<Card text={karty.text} color={'#3F1292'} key={karty.id} id={karty.id}></Card>)) : null}
             </div>
           </div>
-
         </div>
       </div>
       <button onClick={() =>

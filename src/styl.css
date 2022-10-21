@@ -43,40 +43,7 @@
     margin-right: auto;
     border: 1px solid black;
     border-radius: 15px;
-}
-
-.con2 {
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-}
-
-.left {
-    float: left;
-    width: 50%;
-    height: 100%;
-    background-image: linear-gradient(to left, rgb(245, 219, 219), rgb(240, 124, 124), rgb(235, 70, 70), red);
-    box-sizing: border-box;
-    border-bottom-left-radius: 15px;
-    border-top-left-radius: 15px;
-}
-
-.right {
-    width: 50%;
-    height: 100%;
-    float: left;
-    background-image: linear-gradient(to left, rgb(58, 238, 58), rgb(109, 230, 109), rgb(150, 235, 150), rgb(197, 235, 197));
-    box-sizing: border-box;
-    border-bottom-right-radius: 15px;
-    border-top-right-radius: 15px;
-}
-
-.right::after {
-    content: '';
-    display: block;
-    clear: both;
+    background-image: linear-gradient(to left, rgb(58, 238, 58), rgb(109, 230, 109), rgb(150, 235, 150), rgb(197, 235, 197), rgb(245, 219, 219), rgb(240, 124, 124), rgb(235, 70, 70), red);
 }
 
 .testTitle {
