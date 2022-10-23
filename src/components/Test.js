@@ -42,6 +42,11 @@ const Test = () => {
   const [draggedCards, setDraggedCards] = useState(initialState)
   const [IsClicked, setIsClicked] = useState(false)
   const [draggedCount, setDraggedCount] = useState(0)
+  const [loading, setLoading] = useState(false);
+
+  const handleSetLoading = () => {
+    setLoading(true);
+  }
 
   useEffect(() => {
     setDraggedCount(draggedCards.length);
@@ -63,6 +68,7 @@ const Test = () => {
 
   function liczenie(pytania) {
     //TODO ustawic pytania na prawdziwe pytania:gotowe chyba idk
+    setLoading(true)
     const nazwy = Object.keys(pytania);
     //
     const osoby = Object.keys(pytania[Object.keys(pytania)[0]])
@@ -84,6 +90,7 @@ const Test = () => {
         }
       }
     }
+    setLoading(false)
     // console.log(wyniki)
     return(generujItemki(wyniki))
   }
@@ -116,6 +123,7 @@ const Test = () => {
 
         <div className='App'>
           {IsActive ? null : <button className="button3" onClick={() => {
+            handleSetLoading()
             toggleActiveState()
             get(child(ref(db), 'Osoby')).then((snapshot) => {
               if (snapshot.exists()) {
@@ -149,10 +157,18 @@ const Test = () => {
               } else {
                 console.log("No data available");
               }
+              setLoading(false)
             }).catch((error) => {
               console.error(error);
             })
           }}>Rozpocznij test</button>}
+          {loading ? (
+            <div class="animacja">
+              <div class="a1"></div>
+              <div class="a2"></div>
+              <div class="a3"></div>
+            </div>
+          ) : null}
           <div className="null"></div>
         </div>
         {IsClicked ? null : 
@@ -162,7 +178,7 @@ const Test = () => {
                   {IsActive ? karty.map((karty) => (<Card text={karty.text} color={'#541B6B'} key={karty.id} id={karty.id} state={draggedCards} setState={setDraggedCards}></Card>)) : null}
                 </div>
               </div>
-              {draggedCount ? <button className='btn btn-secondary center-horizontally' onClick={handleClick}>Wyswietl wyniki</button> : null}
+              {draggedCount ? <button className='btn btn-secondary center-horizontally' onClick={() => {handleClick()}}>Wyswietl wyniki</button> : null}
           </div>}
           {IsClicked && (<ol className='results'>{liczenie(pytania)}</ol>)}
         </div>
