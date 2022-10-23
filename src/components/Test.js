@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import { getDatabase, ref, child, get } from "firebase/database";
 import { initializeApp } from 'firebase/app';
+import { motion, useMotionValue, useAnimationControls } from 'framer-motion';
 import Header from './Header'
 import Tutorial from './Tutorial';
-
-import Card from "./Card"
 
 const firebaseConfig = {
   apiKey: "AIzaSyCzKjRaCbrubxYofXuH_PlZ8HD0ye9GRDc",
@@ -30,18 +29,36 @@ function shuffle(sourceArray) {
   return sourceArray;
 }
 const Test = () => {
-  const cards = [];
+  const motionValue = useMotionValue(0);
+
+  const animControls = useAnimationControls();
+
+  const style = {
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'contain',
+    backgroundColor: '#3F1292',
+    borderRadius: 15,
+    height: 190,
+    width: 190,
+    verticalAlign: 'middle',
+    display: 'table-cell',
+    position: 'absolute',
+    left: '0px',
+    padding: '5px'
+  };
 
   const db = getDatabase();
 
-  //lemme just wrzucic to tu cyk cyk | dawid
   const [IsActive, setIsActive] = useState(false)
-  const [karty, setkarty] = useState(cards);
+  const cards = [];
+  const [karty, setKarty] = useState(cards);
+  const initialState = []
+  const [draggedCards, setDraggedCards] = useState(initialState)
 
   const toggleActiveState = () => setIsActive(true)
 
   const addObjectToArray = obj => {
-    setkarty(current => [...current, obj]);
+    setKarty(current => [...current, obj]);
 
   };
   // do testów
@@ -74,6 +91,7 @@ const Test = () => {
     console.log(wyniki)
   }
 
+  console.log(draggedCards)
   //moje stop |dawid
   return (
     <>
@@ -82,7 +100,7 @@ const Test = () => {
         <Tutorial />
 
         <div className='App'>
-          <button className="button3" onClick={() => {
+          {IsActive ? null : <button className="button3" onClick={() => {
             toggleActiveState()
             get(child(ref(db), 'Pytania')).then((snapshot) => {
               if (snapshot.exists()) {
@@ -91,8 +109,7 @@ const Test = () => {
                 nazwy = shuffle(nazwy)
                 for(var i=0;i<nazwy.length;i++){
                     pytania.push(snapshot.val()[nazwy[i]])
-                } 
-                console.log(pytania)
+                }
                 liczenie(pytania)
                 
                 for (let j = 0; j < nazwy.length; j++) {
@@ -104,15 +121,42 @@ const Test = () => {
             }).catch((error) => {
               console.error(error);
             })
-            document.getElementsByClassName("button3")[0].style = "display:none";
-            document.getElementsByClassName("null")[0].style = "display:block"; /*znikanie przycisku */
-          }}>Rozpocznij test</button>
+          }}>Rozpocznij test</button>}
           <div class="null"></div>
         </div>
         <div className="con">
           <div class="karta">
             <div className='CardText'>
-              {IsActive ? karty.map((karty) => (<Card text={karty.text} color={'#3F1292'} key={karty.id} id={karty.id}></Card>)) : null}
+              {IsActive ? karty.map((karty) => (
+                <motion.div
+                  drag='x'
+                  x={motionValue}
+                  dragConstraints={{ left: 0, right: 0 }}
+                  style={style}
+                  children={karty.text}
+                  id={karty.id}
+                  animate={animControls}
+                  key={karty.id}
+
+                  onDragEnd={(event, info) => {
+                    if (info.point.x >= (window.innerWidth/2)-style.width*0.25 && info.point.x <= (window.innerWidth/2)+style.width*0.25) {
+                      animControls.start({ x: 0 });
+                    } else {
+                      animControls.start({
+                        x: info.point.x <= (window.innerWidth/2) ? -(window.innerWidth/2): (window.innerWidth/2)-70,
+                        opacity: 0,
+                        scale:0
+                      });
+                    }
+                    const kartyid = karty.id
+                    if (info.point.x <= (window.innerWidth/2)) {
+                      setDraggedCards(current => [...current, { id: kartyid, IsDragRight: 0 }])
+                    }
+                    if (info.point.x >= (window.innerWidth/2)) {
+                      setDraggedCards(current => [...current, { id: kartyid, IsDragRight: 1 }])
+                    }
+                  }
+                  } />)) : null}
             </div>
           </div>
         </div>
