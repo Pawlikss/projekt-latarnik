@@ -31,6 +31,9 @@ function shuffle(sourceArray) {
   return sourceArray;
 }
 var pytania={pytanie1:{osoba1:true,osoba2:false,osoba3:true},pytanie2:{osoba1:false,osoba2:false,osoba3:false},pytanie3:{osoba1:false,osoba2:true,osoba3:false}};
+var nazwy=[]
+var osoby=[]
+var oficjalneOsoby=[]
 const Test = () => {
   const db = getDatabase();
 
@@ -97,7 +100,7 @@ const Test = () => {
     wyniki.sort(([,b],[,a]) => a-b)
     wyniki.reduce((r, [k, v]) => ({ ...r, [k]: v }), {});
     // console.log(dlugosc)
-    const listItems = (wyniki).map((x) =>  <li key={x}>{Number((x[1]/dlugosc*100).toFixed(1))+"%"+x[0]}</li>);
+    const listItems = (wyniki).map((x) =>  <li>{Number((x[1]/dlugosc*100).toFixed(1))+"%"+x[0]}<img src={"https://api.sejm.gov.pl/sejm/term9/MP/"+(oficjalneOsoby[x[0].trim()])+"/photo-mini"}></img></li>);
     return listItems
   }
   //moje stop |dawid
@@ -110,6 +113,21 @@ const Test = () => {
         <div className='App'>
           {IsActive ? null : <button className="button3" onClick={() => {
             toggleActiveState()
+            get(child(ref(db), 'Osoby')).then((snapshot) => {
+              if (snapshot.exists()) {
+                
+                oficjalneOsoby=[];
+                for(var j=0;j<snapshot.val().length;j++){
+                  oficjalneOsoby.push([(snapshot.val()[j].lastName).toUpperCase()+" "+(snapshot.val()[j].firstName).toUpperCase(),snapshot.val()[j].id])
+                }
+                oficjalneOsoby = Object.fromEntries(oficjalneOsoby)
+                
+              } else {
+                console.log("No data available");
+              }
+            }).catch((error) => {
+              console.error(error);
+            })
             get(child(ref(db), 'Pytania')).then((snapshot) => {
               if (snapshot.exists()) {
                 var nazwy = Object.keys(snapshot.val())
