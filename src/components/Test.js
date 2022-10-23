@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { getDatabase, ref, child, get } from "firebase/database";
 import { initializeApp } from 'firebase/app';
 import Header from './Header'
@@ -31,8 +31,6 @@ function shuffle(sourceArray) {
   return sourceArray;
 }
 var pytania={pytanie1:{osoba1:true,osoba2:false,osoba3:true},pytanie2:{osoba1:false,osoba2:false,osoba3:false},pytanie3:{osoba1:false,osoba2:true,osoba3:false}};
-var nazwy=[]
-var osoby=[]
 var oficjalneOsoby=[]
 const Test = () => {
   const db = getDatabase();
@@ -43,6 +41,11 @@ const Test = () => {
   const initialState = []
   const [draggedCards, setDraggedCards] = useState(initialState)
   const [IsClicked, setIsClicked] = useState(false)
+  const [draggedCount, setDraggedCount] = useState(0)
+
+  useEffect(() => {
+    setDraggedCount(draggedCards.length);
+  }, [draggedCards, draggedCount])
 
   const handleClick = () => setIsClicked(true)
 
@@ -101,13 +104,13 @@ const Test = () => {
     wyniki.reduce((r, [k, v]) => ({ ...r, [k]: v }), {});
     // console.log(dlugosc)
     wyniki = wyniki.slice(0,15)
-    const listItems = (wyniki).map((x) =>  <li>{Number((x[1]/dlugosc*100).toFixed(1))+"%"+x[0]}<img src={"https://api.sejm.gov.pl/sejm/term9/MP/"+(oficjalneOsoby[x[0].trim()])+"/photo-mini"}></img></li>);
+    const listItems = (wyniki).map((x) =>  <li key={x}>{Number((x[1]/dlugosc*100).toFixed(1))+"%"+x[0]}<img src={"https://api.sejm.gov.pl/sejm/term9/MP/"+(oficjalneOsoby[x[0].trim()])+"/photo-mini"}></img></li>);
     return listItems
   }
   //moje stop |dawid
   return (
     <>
-      <div class="background">
+      <div className="background">
         <Header />
         {IsClicked ? <Results/> : <Tutorial />}
 
@@ -150,18 +153,18 @@ const Test = () => {
               console.error(error);
             })
           }}>Rozpocznij test</button>}
-          <div class="null"></div>
+          <div className="null"></div>
         </div>
-        {IsClicked ? null :
+        {IsClicked ? null : 
           <div className="con">
               <div className="karta">
                 <div className='CardText'>
                   {IsActive ? karty.map((karty) => (<Card text={karty.text} color={'#541B6B'} key={karty.id} id={karty.id} state={draggedCards} setState={setDraggedCards}></Card>)) : null}
                 </div>
               </div>
-              <button className='btn btn-secondary center' onClick={handleClick}>Wyswietl wyniki</button>
+              {draggedCount ? <button className='btn btn-secondary center-horizontally' onClick={handleClick}>Wyswietl wyniki</button> : null}
           </div>}
-          {IsClicked && (<ol>{liczenie(pytania)}</ol>)}
+          {IsClicked && (<ol className='results'>{liczenie(pytania)}</ol>)}
         </div>
     </>
   );

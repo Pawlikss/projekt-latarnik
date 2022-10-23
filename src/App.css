@@ -11,3 +11,11 @@
 .center {
     text-align: center;
 }
+
+.center-horizontally {
+    margin: 10px;
+    position: absolute;
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
