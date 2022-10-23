@@ -27,12 +27,16 @@ FireFox
 Chrome  
 Edge  
 #### 3.2 Instalowanie strony internetowej na serwer lokalny(rozwiązanie self-hosted):
-Pobieramy node.js, klonujemy [repozytorium](https://github.com/Pawlikss/projekt-latarnik) i Za pomocą Node Package Menager instalujemy je ```npm install```.  Gotowe, teraz możemy ją zbudować lub włączyć za pomocą komendy:  
+Pobieramy node.js, klonujemy [repozytorium](https://github.com/Pawlikss/projekt-latarnik)  
+```
+git clone https://github.com/Pawlikss/projekt-latarnik
+```  
+i Za pomocą Node Package Menager instalujemy je ```npm install```.  Gotowe, teraz możemy ją zbudować :  
 ```
 npm run build
 serve -s build
 ```
-albo  
+albo włączyć na serwerze lokalnym za pomocą komendy:
 ```npm start```  
 
 ## 4. Wstęp:
