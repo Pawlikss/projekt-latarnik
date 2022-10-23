@@ -132,7 +132,6 @@ const Test = () => {
                 for(var i=0;i<nazwy.length;i++){
                     pytania.push(snapshot.val()[nazwy[i]])
                 } 
-                // console.log(pytania)
                 liczenie(pytania)
                 
                 for (let j = 0; j < nazwy.length; j++) {
