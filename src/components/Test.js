@@ -45,7 +45,12 @@ const Test = () => {
 
   };
   // do testów
-  // const pytania={pytanie1:{osoba1:true,osoba2:false,osoba3:true},pytanie2:{osoba1:false,osoba2:false,osoba3:false},pytanie3:{osoba1:false,osoba2:true,osoba3:false}};
+  const pytania={pytanie1:{osoba1:true,osoba2:false,osoba3:true},pytanie2:{osoba1:false,osoba2:false,osoba3:false},pytanie3:{osoba1:false,osoba2:true,osoba3:false}};
+  var pytania2=[];
+  var nazwy2 = shuffle(Object.keys(pytania))
+  for(var i=0;i<nazwy2.length;i++){
+      pytania2.push(pytania[nazwy2[i]])
+  } 
   //TODO odpowiedzi mają być odpowiedziami z state.karty
   const odpowiedzi = [0, 0, 1];
 
@@ -72,9 +77,19 @@ const Test = () => {
       }
     }
     console.log(wyniki)
+    return(generujItemki(wyniki))
   }
-
+  
   console.log(draggedCards)
+  function generujItemki(wyniki){
+    wyniki = Object.entries(wyniki)
+    const dlugosc=wyniki.length
+    wyniki.sort(([,b],[,a]) => a-b)
+    wyniki.reduce((r, [k, v]) => ({ ...r, [k]: v }), {});
+    console.log(wyniki)
+    const listItems = (wyniki).map((x) =>  <li>{Number((x[1]/dlugosc*100).toFixed(1))+"%"+x[0]}</li>);
+    return listItems
+  }
   //moje stop |dawid
   return (
     <>
@@ -94,7 +109,7 @@ const Test = () => {
                     pytania.push(snapshot.val()[nazwy[i]])
                 } 
                 console.log(pytania)
-                liczenie(pytania)
+                pytania2=liczenie(pytania)
                 
                 for (let j = 0; j < nazwy.length; j++) {
                   addObjectToArray({ id: j, text: nazwy[j] })
@@ -115,6 +130,7 @@ const Test = () => {
             </div>
           </div>
         </div>
+        <div class="dupa">wyniki:<ul>{liczenie(pytania2)}</ul></div>
       </div>
       <button onClick={() =>
         addObjectToArray({
