@@ -87,6 +87,7 @@ const Test = () => {
   for(var x = 0;x<draggedCards.length;x++){
     odpowiedzi.push(draggedCards[x].IsDragRight)
   }
+
   function generujItemki(wyniki){
     wyniki = Object.entries(wyniki)
 
@@ -94,7 +95,6 @@ const Test = () => {
     
     wyniki.sort(([,b],[,a]) => a-b)
     wyniki.reduce((r, [k, v]) => ({ ...r, [k]: v }), {});
-
     wyniki = wyniki.slice(0,15)
     const listItems = (wyniki).map((x) =>  <li key={x[0]}>{Number((x[1]/dlugosc*100).toFixed(1))+"%"+x[0]}<img src={"https://api.sejm.gov.pl/sejm/term9/MP/"+(oficjalneOsoby[x[0].trim()])+"/photo-mini"}></img></li>);
     return listItems
