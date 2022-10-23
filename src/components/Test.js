@@ -161,10 +161,10 @@ const Test = () => {
             })
           }}>Rozpocznij test</button>}
           {loading ? (
-            <div class="animacja">
-              <div class="a1"></div>
-              <div class="a2"></div>
-              <div class="a3"></div>
+            <div className="animacja">
+              <div className="a1"></div>
+              <div className="a2"></div>
+              <div className="a3"></div>
             </div>
           ) : null}
           <div className="null"></div>
