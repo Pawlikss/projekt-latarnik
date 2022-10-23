@@ -21,11 +21,11 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 function shuffle(sourceArray) {
   for (var i = 0; i < sourceArray.length - 1; i++) {
-      var j = i + Math.floor(Math.random() * (sourceArray.length - i));
+    var j = i + Math.floor(Math.random() * (sourceArray.length - i));
 
-      var temp = sourceArray[j];
-      sourceArray[j] = sourceArray[i];
-      sourceArray[i] = temp;
+    var temp = sourceArray[j];
+    sourceArray[j] = sourceArray[i];
+    sourceArray[i] = temp;
   }
   return sourceArray;
 }
@@ -132,7 +132,7 @@ const Test = () => {
         <div className="con">
           <div class="karta">
             <div className='CardText'>
-              {IsActive ? karty.map((karty) => (<Card text={karty.text} color={'#3F1292'} key={karty.id} id={karty.id} state={draggedCards} setState={setDraggedCards}></Card>)) : null}
+              {IsActive ? karty.map((karty) => (<Card text={karty.text} color={'#541B6B'} key={karty.id} id={karty.id} state={draggedCards} setState={setDraggedCards}></Card>)) : null}
             </div>
           </div>
         </div>
