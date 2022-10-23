@@ -29,6 +29,7 @@ function shuffle(sourceArray) {
   }
   return sourceArray;
 }
+var pytania={pytanie1:{osoba1:true,osoba2:false,osoba3:true},pytanie2:{osoba1:false,osoba2:false,osoba3:false},pytanie3:{osoba1:false,osoba2:true,osoba3:false}};
 const Test = () => {
   const db = getDatabase();
 
@@ -45,20 +46,17 @@ const Test = () => {
 
   };
   // do testów
-  const pytania={pytanie1:{osoba1:true,osoba2:false,osoba3:true},pytanie2:{osoba1:false,osoba2:false,osoba3:false},pytanie3:{osoba1:false,osoba2:true,osoba3:false}};
-  var pytania2=[];
-  var nazwy2 = shuffle(Object.keys(pytania))
-  for(var i=0;i<nazwy2.length;i++){
-      pytania2.push(pytania[nazwy2[i]])
-  } 
+  
+
   //TODO odpowiedzi mają być odpowiedziami z state.karty
-  const odpowiedzi = [0, 0, 1];
+
 
   function liczenie(pytania) {
     //TODO ustawic pytania na prawdziwe pytania:gotowe chyba idk
     const nazwy = Object.keys(pytania);
     //
     const osoby = Object.keys(pytania[Object.keys(pytania)[0]])
+    // console.log(osoby)
     const wyniki = {};
 
     for (const key of osoby) {
@@ -76,17 +74,25 @@ const Test = () => {
         }
       }
     }
-    console.log(wyniki)
+    // console.log(wyniki)
     return(generujItemki(wyniki))
   }
   
-  console.log(draggedCards)
+  // console.log(draggedCards)
+  const odpowiedzi=[]
+  for(var x = 0;x<draggedCards.length;x++){
+    odpowiedzi.push(draggedCards[x].IsDragRight)
+  }
+  // console.log(odpowiedzi)
+  // console.log(pytania)
   function generujItemki(wyniki){
     wyniki = Object.entries(wyniki)
-    const dlugosc=wyniki.length
+    wyniki = wyniki.slice(0,15)
+    const dlugosc=odpowiedzi.length
+    
     wyniki.sort(([,b],[,a]) => a-b)
     wyniki.reduce((r, [k, v]) => ({ ...r, [k]: v }), {});
-    console.log(wyniki)
+    // console.log(dlugosc)
     const listItems = (wyniki).map((x) =>  <li>{Number((x[1]/dlugosc*100).toFixed(1))+"%"+x[0]}</li>);
     return listItems
   }
@@ -103,13 +109,13 @@ const Test = () => {
             get(child(ref(db), 'Pytania')).then((snapshot) => {
               if (snapshot.exists()) {
                 var nazwy = Object.keys(snapshot.val())
-                var pytania=[];
+                pytania=[];
                 nazwy = shuffle(nazwy)
                 for(var i=0;i<nazwy.length;i++){
                     pytania.push(snapshot.val()[nazwy[i]])
                 } 
-                console.log(pytania)
-                pytania2=liczenie(pytania)
+                // console.log(pytania)
+                liczenie(pytania)
                 
                 for (let j = 0; j < nazwy.length; j++) {
                   addObjectToArray({ id: j, text: nazwy[j] })
@@ -130,7 +136,7 @@ const Test = () => {
             </div>
           </div>
         </div>
-        <div class="dupa">wyniki:<ul>{liczenie(pytania2)}</ul></div>
+        <div class="dupa">wyniki:<ol>{liczenie(pytania)}</ol></div>
       </div>
       <button onClick={() =>
         addObjectToArray({
