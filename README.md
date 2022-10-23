@@ -94,7 +94,7 @@ Firebase jako hosting serwera wraz z dostępem do bazy danych z czasem rzeczywis
 
 #### Nazwa drużyny:
 
-**_TBA_**
+**_Wojownicy _**
 
 #### Nazwa szkoły:
 
