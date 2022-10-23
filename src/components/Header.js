@@ -1,7 +1,7 @@
 const Header = () => {
     return (
         <header className="headerPage">
-            <h1>Latarnik wyborczy</h1>
+            <h1>Sejmder</h1>
         </header>
     );
 }
