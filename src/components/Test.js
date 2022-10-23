@@ -142,7 +142,7 @@ const Test = () => {
               </div>
               <button className='btn btn-secondary center' onClick={handleClick}>Wyswietl wyniki</button>
           </div>}
-          {IsClicked && (<ol>{liczenie(pytania)}</ol>)}
+          {IsClicked && (<ol className='results'>{liczenie(pytania)}</ol>)}
         </div>
     </>
   );
