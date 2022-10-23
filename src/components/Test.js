@@ -48,8 +48,6 @@ const Test = () => {
     setLoading(true);
   }
 
-  const done = IsClicked && !loading;
-
   useEffect(() => {
     setDraggedCount(draggedCards.length);
   }, [draggedCards, draggedCount])
@@ -178,15 +176,9 @@ const Test = () => {
                   {IsActive ? karty.map((karty) => (<Card text={karty.text} color={'#541B6B'} key={karty.id} id={karty.id} state={draggedCards} setState={setDraggedCards}></Card>)) : null}
                 </div>
               </div>
-              {draggedCount ? <button className='btn btn-secondary center-horizontally' onClick={() => {
-                handleClick();
-                handleSetLoading();
-                setTimeout(() => {
-                  setLoading(false);
-                }, 1500);
-              }}>Wyswietl wyniki</button> : null}
+              {draggedCount ? <button className='btn btn-secondary center-horizontally' onClick={() => {handleClick();}}>Wyswietl wyniki</button> : null}
           </div>}
-          {done && (<ol className='results'>{liczenie(pytania)}</ol>)}
+          {IsClicked && (<ol className='results'>{liczenie(pytania)}</ol>)}
         </div>
     </>
   );
