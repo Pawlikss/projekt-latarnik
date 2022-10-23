@@ -229,6 +229,47 @@
     width: 150px;
 }
 
+.animacja {
+    display: flex;
+    width: 60px;
+}
+
+.a1 {
+    margin: 2px;
+    height: 15px;
+    width: 15px;
+    border-radius: 50px;
+    background-color: rgb(32, 52, 240);
+    animation: animacja 1.5s infinite linear;
+}
+
+.a2 {
+    margin: 2px;
+    height: 15px;
+    width: 15px;
+    border-radius: 50px;
+    background-color: rgb(28, 31, 224);
+    animation: animacja 1.5s infinite linear;
+    animation-delay: 0.25s;
+}
+
+.a3 {
+    margin: 2px;
+    height: 15px;
+    width: 15px;
+    border-radius: 50px;
+    background-color: rgb(28, 31, 224);
+
+    animation: animacja 1.5s infinite linear;
+    animation-delay: 0.5s;
+}
+
+@keyframes animacja {
+    50% {
+        transform: scale(50%);
+    }
+}
+
 @media only screen and (max-width: 920px) {
     .title {
         margin-bottom: 30px;

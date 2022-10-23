@@ -104,7 +104,7 @@ const Test = () => {
     wyniki.reduce((r, [k, v]) => ({ ...r, [k]: v }), {});
     // console.log(dlugosc)
     wyniki = wyniki.slice(0,15)
-    const listItems = (wyniki).map((x) =>  <li key={x}>{Number((x[1]/dlugosc*100).toFixed(1))+"%"+x[0]}<img src={"https://api.sejm.gov.pl/sejm/term9/MP/"+(oficjalneOsoby[x[0].trim()])+"/photo-mini"}></img></li>);
+    const listItems = (wyniki).map((x) =>  <li key={x[0]}>{Number((x[1]/dlugosc*100).toFixed(1))+"%"+x[0]}<img src={"https://api.sejm.gov.pl/sejm/term9/MP/"+(oficjalneOsoby[x[0].trim()])+"/photo-mini"}></img></li>);
     return listItems
   }
   //moje stop |dawid
