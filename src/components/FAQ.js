@@ -2,7 +2,7 @@ const FAQ = () => {
     return (
         <article>
             <div className='container'>
-                <div className="cen"><img className='img' src="faq.jpg" alt="FAQ" /></div>
+                <img className='img' src="faq.jpg" alt="FAQ" width="100%" />
 
                 <div className="text">
                     <span className="weight"> Co się dzieje z odpowiedziami użytkowników?</span><br />

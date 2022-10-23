@@ -14,7 +14,7 @@ const About = () => {
                 <div className="flexElement">
                     <p>
                         <h3 className="title">Porównujemy twoje poglądy</h3>
-                        <span> Dzięki danym publicznym możemy porównać twoje odpowiedzi do odpowiedzi kandydatów.</span>
+                        <span> Dzięki danym publicznym możemy porównać twoje odpowiedzi do odpowiedzi posłów.</span>
                     </p>
                 </div>
                 <div className="flexElement">

@@ -9,7 +9,7 @@
 }
 
 .background {
-    background-color: rgb(202, 201, 218);
+    background-color: white;
     position: relative;
     padding-bottom: 50px;
 }
@@ -203,6 +203,11 @@
     clear: both;
 }
 
+.results {
+    text-align: center;
+    list-style-position: inside;
+}
+
 .footerText {
     color: #2b2c2c;
     font-family: Arial;
@@ -215,6 +220,7 @@
 
 .container {
     margin-top: 30px;
+    height: 165px;
 }
 
 .img {
