@@ -94,12 +94,13 @@ const Test = () => {
   // console.log(pytania)
   function generujItemki(wyniki){
     wyniki = Object.entries(wyniki)
-    wyniki = wyniki.slice(0,15)
+
     const dlugosc=odpowiedzi.length
     
     wyniki.sort(([,b],[,a]) => a-b)
     wyniki.reduce((r, [k, v]) => ({ ...r, [k]: v }), {});
     // console.log(dlugosc)
+    wyniki = wyniki.slice(0,15)
     const listItems = (wyniki).map((x) =>  <li>{Number((x[1]/dlugosc*100).toFixed(1))+"%"+x[0]}<img src={"https://api.sejm.gov.pl/sejm/term9/MP/"+(oficjalneOsoby[x[0].trim()])+"/photo-mini"}></img></li>);
     return listItems
   }
@@ -160,7 +161,7 @@ const Test = () => {
               </div>
               <button className='btn btn-secondary center' onClick={handleClick}>Wyswietl wyniki</button>
           </div>}
-          {IsClicked && (<ol className='results'>{liczenie(pytania)}</ol>)}
+          {IsClicked && (<ol>{liczenie(pytania)}</ol>)}
         </div>
     </>
   );
