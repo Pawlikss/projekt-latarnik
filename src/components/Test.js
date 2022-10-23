@@ -48,6 +48,8 @@ const Test = () => {
     setLoading(true);
   }
 
+  const done = IsClicked && !loading;
+
   useEffect(() => {
     setDraggedCount(draggedCards.length);
   }, [draggedCards, draggedCount])
@@ -68,7 +70,6 @@ const Test = () => {
 
   function liczenie(pytania) {
     //TODO ustawic pytania na prawdziwe pytania:gotowe chyba idk
-    setLoading(true)
     const nazwy = Object.keys(pytania);
     //
     const osoby = Object.keys(pytania[Object.keys(pytania)[0]])
@@ -90,7 +91,6 @@ const Test = () => {
         }
       }
     }
-    setLoading(false)
     // console.log(wyniki)
     return(generujItemki(wyniki))
   }
@@ -178,9 +178,15 @@ const Test = () => {
                   {IsActive ? karty.map((karty) => (<Card text={karty.text} color={'#541B6B'} key={karty.id} id={karty.id} state={draggedCards} setState={setDraggedCards}></Card>)) : null}
                 </div>
               </div>
-              {draggedCount ? <button className='btn btn-secondary center-horizontally' onClick={() => {handleClick()}}>Wyswietl wyniki</button> : null}
+              {draggedCount ? <button className='btn btn-secondary center-horizontally' onClick={() => {
+                handleClick();
+                handleSetLoading();
+                setTimeout(() => {
+                  setLoading(false);
+                }, 1500);
+              }}>Wyswietl wyniki</button> : null}
           </div>}
-          {IsClicked && (<ol className='results'>{liczenie(pytania)}</ol>)}
+          {done && (<ol className='results'>{liczenie(pytania)}</ol>)}
         </div>
     </>
   );
