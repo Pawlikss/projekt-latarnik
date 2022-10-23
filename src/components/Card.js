@@ -41,10 +41,10 @@ const Card = ({ id, text, color, state, setState }) => {
           });
         }
 
-        if (info.point.x <= (window.innerWidth/2)) {
+        if (info.point.x <= (window.innerWidth/2)-style.width*0.25) {
           setState(current => [...current, { id, IsDragRight: 0 }])
         }
-        if (info.point.x >= (window.innerWidth/2)) {
+        if (info.point.x >= (window.innerWidth/2)+style.width*0.25) {
           setState(current => [...current, { id, IsDragRight: 1 }])
         }
       }
