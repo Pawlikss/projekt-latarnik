@@ -3,6 +3,7 @@ import { getDatabase, ref, child, get } from "firebase/database";
 import { initializeApp } from 'firebase/app';
 import Header from './Header'
 import Tutorial from './Tutorial';
+import Results from './Results';
 
 import Card from "./Card"
 
@@ -38,6 +39,9 @@ const Test = () => {
   const [karty, setKarty] = useState(cards);
   const initialState = []
   const [draggedCards, setDraggedCards] = useState(initialState)
+  const [IsClicked, setIsClicked] = useState(false)
+
+  const handleClick = () => setIsClicked(true)
 
   const toggleActiveState = () => setIsActive(true)
 
@@ -93,7 +97,7 @@ const Test = () => {
     wyniki.sort(([,b],[,a]) => a-b)
     wyniki.reduce((r, [k, v]) => ({ ...r, [k]: v }), {});
     // console.log(dlugosc)
-    const listItems = (wyniki).map((x) =>  <li>{Number((x[1]/dlugosc*100).toFixed(1))+"%"+x[0]}</li>);
+    const listItems = (wyniki).map((x) =>  <li key={x}>{Number((x[1]/dlugosc*100).toFixed(1))+"%"+x[0]}</li>);
     return listItems
   }
   //moje stop |dawid
@@ -101,7 +105,7 @@ const Test = () => {
     <>
       <div class="background">
         <Header />
-        <Tutorial />
+        {IsClicked ? <Results/> : <Tutorial />}
 
         <div className='App'>
           {IsActive ? null : <button className="button3" onClick={() => {
@@ -129,21 +133,17 @@ const Test = () => {
           }}>Rozpocznij test</button>}
           <div class="null"></div>
         </div>
-        <div className="con">
-          <div class="karta">
-            <div className='CardText'>
-              {IsActive ? karty.map((karty) => (<Card text={karty.text} color={'#541B6B'} key={karty.id} id={karty.id} state={draggedCards} setState={setDraggedCards}></Card>)) : null}
-            </div>
-          </div>
+        {IsClicked ? null :
+          <div className="con">
+              <div className="karta">
+                <div className='CardText'>
+                  {IsActive ? karty.map((karty) => (<Card text={karty.text} color={'#541B6B'} key={karty.id} id={karty.id} state={draggedCards} setState={setDraggedCards}></Card>)) : null}
+                </div>
+              </div>
+              <button className='btn btn-secondary center' onClick={handleClick}>Wyswietl wyniki</button>
+          </div>}
+          {IsClicked && (<ol>{liczenie(pytania)}</ol>)}
         </div>
-        <div class="dupa">wyniki:<ol>{liczenie(pytania)}</ol></div>
-      </div>
-      <button onClick={() =>
-        addObjectToArray({
-          id: Math.random(),
-          text: 'test1',
-        })
-      }>dodaj do tescik</button>
     </>
   );
 }
