@@ -2,35 +2,34 @@
 
 ## 1. Opis projektu:
 
-##### 1.1 Tytuł projektu:
+#### 1.1 Tytuł projektu:
 **Latarnik wyborczy**
-##### 1.2 Cel projektu:
+#### 1.2 Cel projektu:
 Pomoc obywatelom w wyborach parlamentu 2023.  
 Projekt może dotyczyc wszystkich obywateli mających prawa wyborcze lub tych młodszych, którzy interesują się polityką.Pozwoli to na zweryfikowanie własnych preferencji wyborczych z rzeczywistymi kandydatami w wyborach.
 
 ## 2. Opis techniczny:
 
 Aplikacja wykonana jest zgodnie z zasadami responsywności, dostosuje się automatycznie zarówno do urządzeń desktopowych jak i mobilnych.  Grafika w przygotowanej Aplikacji w obecnej formie pełni rolę makiety, która będzie rozbudowywana wraz z rozwojem aplikacji.  Wyniki głosowania poszczególnych posłów dotyczące konkretnych tematów głosowań pobierane w postaci dokumentu pdf z którego następnie wyciągane są potrzebne nam dane.
-##### 2.1 Technologie użyte:
+#### 2.1 Technologie użyte:
 React z bibliotekami bootstrap i firebase,  
 JSX,  
 Python 3.10.X,  
 Firebase Realtime Database,  
 Sejm API  
-#####  2.2 Narzędzia użyte:
+####  2.2 Narzędzia użyte:
 Firebase – kompletny system backendowy aplikacji(baza danych, hosting, analizy i statystyki)  
 ## 3. Wymagania:
-##### 3.1 Korzystanie online:
+#### 3.1 Korzystanie online:
 Do poprawnego korzystania z naszej strony internetowej potrzebna będzie przeglądarka, z włączonym javascriptem.  
 Preferowane przeglądarki to:  
 FireFox  
 Chrome  
 Edge  
-##### 3.2 Instalowanie strony internetowej na serwer lokalny(rozwiązanie self-hosted):
+#### 3.2 Instalowanie strony internetowej na serwer lokalny(rozwiązanie self-hosted):
 Pobieramy node.js, klonujemy [repozytorium](https://github.com/Pawlikss/projekt-latarnik) i Za pomocą Node Package Menager instalujemy je ```npm install```.  Gotowe, teraz możemy ją zbudować lub włączyć za pomocą komendy:  
 ```
 npm run build
-npm install -g serve  
 serve -s build
 ```
 albo  
@@ -38,14 +37,14 @@ albo
 
 ## 4. Wstęp:
 
-##### 4.1 Tematyka:
+#### 4.1 Tematyka:
 Strona jest w interaktywnym quizem pozwalający jego użytkownikom pomoc w wyborze kandydata na wybory parlamentarne w roku 2023.Aplikacja pozwoli na zweryfikowanie własnych preferencji wyborczych z programem wyborczym poszczególnego kandydata.
-##### 4.2 Strona główna:
+#### 4.2 Strona główna:
 W nagłówku znajduje się nazwa naszego projektu, w głównej częściprzycisk rozpocznij test, przenoszący nas na stronę testu
-##### 4.3 Podstrona "test":
+#### 4.3 Podstrona "test":
 Na niej znajdujemy główny przycisk który wysyła kwerendę do bazy żeby dostać pytania, po czym użytkownik dostaje do wyboru w którą stronę chce przesunąć dane pytania, w prawo jeżeli zgadza się z danym stwierdzeniem lub lewo jeżeli nie.
 
-##### 4.4 Funkcjonalność:
+#### 4.4 Funkcjonalność:
 Na podstronie Test, znajduje się główna Funkcjonalność w postaci quizu. Działa on na bazie zapisywania odpowiedzi użytkownika i porównywania ich z głosowaniem posłów na dany temat, po czym wyświetla najbardziej dopasowanych posłów, na których mógłby głosować dany użytkownik. 
 Strona w domyśle nie zapisuje odpowiedzi użytkownika poza pamięcią lokalną przeglądarki-ochrona prywatności.
 
@@ -66,13 +65,13 @@ Firebase jako hosting serwera wraz z dostępem do bazy danych z czasem rzeczywis
 
 ## 7. Informacje o zespole:
 
-##### Nazwa drużyny: 
-TBA
-##### Nazwa szkoły: 
+#### Nazwa drużyny: 
+***TBA***
+#### Nazwa szkoły: 
 Zespół Szkół Energetycznych Technikum Energetyczno-informatyczne w Lublinie
-##### Członkowie zespołu:
-Bartosz Szczepaniak Projektant i grafik;
-Mikołaj Grymuza programista i tester oprogramowania;
-Dawid Rej programista i projektant
-Ksawier Czerniak programista i grafik
-Paweł Hrabia programista i grafik.
+#### Członkowie zespołu:
+Paweł Hrabia programista i grafik.  
+Dawid Rej programista i projektant  
+Mikołaj Grymuza programista i tester oprogramowania  
+Ksawier Czerniak programista i grafik  
+Bartosz Szczepaniak Projektant i grafik
