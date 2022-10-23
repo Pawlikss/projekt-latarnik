@@ -60,18 +60,10 @@ const Test = () => {
     setKarty(current => [...current, obj]);
 
   };
-  // do testów
-  
-
-  //TODO odpowiedzi mają być odpowiedziami z state.karty
-
 
   function liczenie(pytania) {
-    //TODO ustawic pytania na prawdziwe pytania:gotowe chyba idk
     const nazwy = Object.keys(pytania);
-    //
     const osoby = Object.keys(pytania[Object.keys(pytania)[0]])
-    // console.log(osoby)
     const wyniki = {};
 
     for (const key of osoby) {
@@ -80,7 +72,6 @@ const Test = () => {
 
     for (let i = 0; i < nazwy.length; i++) {
       for (let j = 0; j < (Object.values(pytania[nazwy[i]])).length; j++) {
-        // //console.log("pytanie nr: "+i+" osoba: "+j+" "+pytania[nazwy[i]][osoby[j]]);
         if (pytania[nazwy[i]][osoby[j]] === true && odpowiedzi[i] === 1) {
           wyniki[osoby[j]] += 1
         }
@@ -89,17 +80,14 @@ const Test = () => {
         }
       }
     }
-    // console.log(wyniki)
     return(generujItemki(wyniki))
   }
   
-  // console.log(draggedCards)
   const odpowiedzi=[]
   for(var x = 0;x<draggedCards.length;x++){
     odpowiedzi.push(draggedCards[x].IsDragRight)
   }
-  // console.log(odpowiedzi)
-  // console.log(pytania)
+
   function generujItemki(wyniki){
     wyniki = Object.entries(wyniki)
 
@@ -107,12 +95,10 @@ const Test = () => {
     
     wyniki.sort(([,b],[,a]) => a-b)
     wyniki.reduce((r, [k, v]) => ({ ...r, [k]: v }), {});
-    // console.log(dlugosc)
     wyniki = wyniki.slice(0,15)
     const listItems = (wyniki).map((x) =>  <li key={x[0]}>{Number((x[1]/dlugosc*100).toFixed(1))+"%"+x[0]}<img src={"https://api.sejm.gov.pl/sejm/term9/MP/"+(oficjalneOsoby[x[0].trim()])+"/photo-mini"}></img></li>);
     return listItems
   }
-  //moje stop |dawid
   return (
     <>
       <div className="background">
@@ -146,7 +132,6 @@ const Test = () => {
                 for(var i=0;i<nazwy.length;i++){
                     pytania.push(snapshot.val()[nazwy[i]])
                 } 
-                // console.log(pytania)
                 liczenie(pytania)
                 
                 for (let j = 0; j < nazwy.length; j++) {
