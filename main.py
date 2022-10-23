@@ -93,7 +93,7 @@ def main():
     os.system("cls")
     od=int(input("podaj od jakiego sejmu chcesz sprawdzać\n"))
     do=int(input("podaj do ktorego sejmu chcesz sprawdzać ostatni był 62\n"))
-    imionaUrl = 'https://raw.githubusercontent.com/dawidoczek/testowanko/main/imiona.txt'
+    imionaUrl = 'https://raw.githubusercontent.com/Pawlikss/projekt-latarnik/main/imiona.txt'
     
     imiona=requests.get(imionaUrl)
     tablicaImion=((imiona.text).replace("\r","")).split("\n")
