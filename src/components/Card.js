@@ -17,7 +17,8 @@ const Card = ({ id, text, color, state, setState }) => {
     display: 'table-cell',
     position: 'absolute',
     left: '0px',
-    padding: '5px'
+    padding: '5px',
+    border: '1px solid #311941'
   };
 
   return (
@@ -31,20 +32,20 @@ const Card = ({ id, text, color, state, setState }) => {
       animate={animControls}
 
       onDragEnd={(event, info) => {
-        if (info.point.x >= (window.innerWidth/2)-style.width*0.25 && info.point.x <= (window.innerWidth/2)+style.width*0.25) {
+        if (info.point.x >= (window.innerWidth / 2) - style.width * 0.25 && info.point.x <= (window.innerWidth / 2) + style.width * 0.25) {
           animControls.start({ x: 0 });
         } else {
           animControls.start({
-            x: info.point.x <= (window.innerWidth/2) ? -(window.innerWidth/2): (window.innerWidth/2)-70,
+            x: info.point.x <= (window.innerWidth / 2) ? -(window.innerWidth / 2) : (window.innerWidth / 2) - 70,
             opacity: 0,
-            scale:0
+            scale: 0
           });
         }
 
-        if (info.point.x <= (window.innerWidth/2)-style.width*0.25) {
+        if (info.point.x <= (window.innerWidth / 2) - style.width * 0.25) {
           setState(current => [...current, { id, IsDragRight: 0 }])
         }
-        if (info.point.x >= (window.innerWidth/2)+style.width*0.25) {
+        if (info.point.x >= (window.innerWidth / 2) + style.width * 0.25) {
           setState(current => [...current, { id, IsDragRight: 1 }])
         }
       }
